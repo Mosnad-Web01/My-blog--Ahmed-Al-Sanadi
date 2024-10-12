@@ -24,7 +24,7 @@ $nav_items = [
                 </a>
             <?php endforeach; ?>
             <?php if (!isset($_SESSION['user_id'])): ?>
-                <a href="<?php echo $base_url; ?>sign-in"
+                <a href="./sign-in"
                     class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2 px-4 rounded transition duration-300">
                     Sign In
                 </a>

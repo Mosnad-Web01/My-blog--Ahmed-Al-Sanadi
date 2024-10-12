@@ -1,10 +1,6 @@
 <?php
- //my-blog/index.php
+// my-blog/index.php
+//this is the entry point of the application
+chdir(__DIR__ . '/app/views');
 
-    $url = trim($_SERVER['REQUEST_URI'], '/');
-    if ($url === '' || $url === 'my-blog') {
-        header("Location: /my-blog/app/views/index?page=home");
-        die();
-
-    }
 
