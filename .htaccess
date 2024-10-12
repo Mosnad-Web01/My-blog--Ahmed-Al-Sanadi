@@ -1,0 +1,15 @@
+RewriteEngine On
+RewriteBase /my-blog/
+
+# Redirect root URL to the home page
+RewriteRule ^$ app/views/index.php?page=home [L]
+
+# Redirect to app/views/index.php with the appropriate page parameter
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)$ app/views/index.php?page=$1 [L,QSA]
+
+# Handle the case for blog creation, storage, and editing
+RewriteRule ^blog/create$ app/views/index.php?page=blog/create [L]
+RewriteRule ^blog/store$ app/views/index.php?page=blog/store [L]
+RewriteRule ^blog/edit$ app/views/index.php?page=blog/edit [L,QSA]
