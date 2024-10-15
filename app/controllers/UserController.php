@@ -10,9 +10,7 @@ class UserController
     {
         $this->userModel = new User($db);
     }
-
-
-
+    
     public function SignIn()
     {
         $errors = [];

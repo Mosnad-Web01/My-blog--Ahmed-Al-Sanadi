@@ -22,6 +22,8 @@ class Router
             'blog/store'  => 'BlogController@store',
             'blog/edit'   => 'BlogController@edit',  // Edit blog route
             'blog/update' => 'BlogController@update', // Update blog route
+            'blog/delete' => 'BlogController@delete', // Delete blog route
+            'blog/show' =>    'BlogController@show',
             '404'         => './pages/404.php',
         ];
     }
