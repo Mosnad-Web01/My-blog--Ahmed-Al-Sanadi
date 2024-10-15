@@ -71,7 +71,7 @@ class BlogController
                 $errors[] = "User ID is missing.";
             }
 
-        
+
             // Check if a new image is uploaded
             if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
 
@@ -197,12 +197,24 @@ class BlogController
 
     public function delete()
     {
+
         $id = $_GET['id'];
-        $this->blogModel->deleteBlog($id);
-        $_SESSION['message'] = "Blog post deleted successfully!";
-        header('Location: /my-blog/blogs');
-        exit;
+        $blog = $this->blogModel->getBlogById($id);
+
+        // check if the user is authorized to delete this blog
+        if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $blog['user_id']) {
+            $this->blogModel->deleteBlog($id);
+            $_SESSION['message'] = "Blog post deleted successfully!";
+            header('Location: /my-blog/blogs');
+            exit;
+        } else {
+            // redirect with an error message
+            $_SESSION['error'] = "You do not have permission to delete this blog post.";
+            header('Location: /my-blog/blogs');
+            exit;
+        }
     }
+
 
 }
 

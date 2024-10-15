@@ -44,7 +44,6 @@ class Blog
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-
     public function updateBlog($id, $title, $content, $image_url, $is_published, $category, $tags)
     {
         $query = "UPDATE blogs SET title = :title, content = :content, image_url = :image_url, 
