@@ -28,10 +28,10 @@ class User
 
     public function signUp($name, $username, $email, $password)
     {
-       //hash password
+       
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        // Prepare the SQL statement
+       
         $query = "INSERT INTO users (name, username, email, password) VALUES (:name, :username, :email, :password)";
         $stmt = $this->conn->prepare($query);
 

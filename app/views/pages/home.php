@@ -1,48 +1,52 @@
-<section
-    class="relative bg-gradient-to-br from-black via-indigo-900 to-black min-h-screen flex items-center justify-center overflow-hidden">
+<?php if (isset($content)): ?>
+
+    <section
+        class="relative bg-gradient-to-br from-black via-indigo-900 to-black min-h-screen flex items-center justify-center overflow-hidden">
 
 
-    <!-- Animated background elements -->
-    <div class="absolute inset-0 overflow-hidden">
-        <div class="floating-shape left-1/4 top-1/4"></div>
-        <div class="floating-shape right-1/4 bottom-1/4"></div>
-        <div class="floating-shape left-1/3 bottom-1/3"></div>
-        <div class="floating-shape right-1/3 top-1/3"></div>
-    </div>
-
-    <!-- Content container -->
-    <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-        <h1 class="text-5xl sm:text-7xl font-extrabold text-white mb-6 animate-fade-in-up">
-            <span class="bg-clip-text text-transparent text-white">
-                Discover. Learn. Grow.
-            </span>
-        </h1>
-        <p class="text-xl sm:text-2xl text-gray-300 mb-10 animate-fade-in-up animation-delay-300">
-            Explore our curated collection of insightful articles, thought-provoking ideas, and expert knowledge.
-        </p>
-        <div
-            class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-in-up animation-delay-600">
-            <a href="#latest-posts"
-                class="px-8 py-3 bg-teal-500 text-white font-semibold rounded-full hover:bg-teal-600 transition duration-300 ease-in-out transform hover:scale-105">
-                Latest Posts
-            </a>
-            <?php if (!isset($_SESSION['user_id'])): ?>
-                <a href="/my-blog/sign-up"
-                    class="px-8 py-3 bg-purple-600 text-white font-semibold rounded-full hover:bg-purple-700 transition duration-300 ease-in-out transform hover:scale-105">
-                    Sign Up Now
-                </a>
-            <?php endif; ?>
+        <!-- Animated background elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="floating-shape left-1/4 top-1/4"></div>
+            <div class="floating-shape right-1/4 bottom-1/4"></div>
+            <div class="floating-shape left-1/3 bottom-1/3"></div>
+            <div class="floating-shape right-1/3 top-1/3"></div>
         </div>
-    </div>
 
-    <!-- Animated scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <svg class="w-6 h-6 text-white" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            viewBox="0 0 24 24" stroke="currentColor">
-            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-        </svg>
-    </div>
-</section>
+        <!-- Content container -->
+        <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+            <h1 class="text-5xl sm:text-7xl font-extrabold text-white mb-6 animate-fade-in-up">
+                <span class="bg-clip-text text-transparent text-white">
+                    Discover. Learn. Grow.
+                </span>
+            </h1>
+            <p class="text-xl sm:text-2xl text-gray-300 mb-10 animate-fade-in-up animation-delay-300">
+                Explore our curated collection of insightful articles, thought-provoking ideas, and expert knowledge.
+            </p>
+            <div
+                class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-in-up animation-delay-600">
+                <a href="#latest-posts"
+                    class="px-8 py-3 bg-teal-500 text-white font-semibold rounded-full hover:bg-teal-600 transition duration-300 ease-in-out transform hover:scale-105">
+                    Latest Posts
+                </a>
+                <?php if (!isset($_SESSION['user_id'])): ?>
+                    <a href="/my-blog/sign-up"
+                        class="px-8 py-3 bg-purple-600 text-white font-semibold rounded-full hover:bg-purple-700 transition duration-300 ease-in-out transform hover:scale-105">
+                        Sign Up Now
+                    </a>
+                <?php endif; ?>
+            </div>
+        </div>
+
+        <!-- Animated scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-white" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+<?php endif; ?>
 
 <!-- Innovative Content Section -->
 <section class="bg-gray-100 py-20">
@@ -246,124 +250,125 @@
                 </div>
             </div>
         </section>
-
         <!-- About Us Section -->
-        <section id="about" class="relative py-20 overflow-hidden">
-            <!-- Background Animation -->
-            <div class="absolute inset-0 z-0">
-                <div class="absolute inset-0 bg-gradient-to-br from-black via-indigo-900 to-black opacity-90"></div>
-                <div class="absolute inset-0" id="particles-js"></div>
-            </div>
+        <?php if (!isset(($_SESSION['user_id']))): ?>
+            <section id="about" class="relative py-20 overflow-hidden">
+                <!-- Background Animation -->
+                <div class="absolute inset-0 z-0">
+                    <div class="absolute inset-0 bg-gradient-to-br from-black via-indigo-900 to-black opacity-90"></div>
+                    <div class="absolute inset-0" id="particles-js"></div>
+                </div>
 
-            <div class="container mx-auto px-4 relative z-10">
-                <div class="max-w-4xl mx-auto">
-                    <h2 class="text-5xl font-bold mb-8 text-center text-white">
-                        <span
-                            class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500">
-                            Our Story
-                        </span>
-                    </h2>
+                <div class="container mx-auto px-4 relative z-10">
+                    <div class="max-w-4xl mx-auto">
+                        <h2 class="text-5xl font-bold mb-8 text-center text-white">
+                            <span
+                                class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500">
+                                Our Story
+                            </span>
+                        </h2>
 
-                    <!-- Timeline -->
-                    <div class="relative mt-16">
-                        <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-white"></div>
+                        <!-- Timeline -->
+                        <div class="relative mt-16">
+                            <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-white"></div>
 
-                        <!-- Timeline Item 1 -->
-                        <div class="relative mt-5  mb-16">
-                            <div
-                                class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full border-4 border-white bg-indigo-600 flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                </svg>
-                            </div>
-                            <div class="ml-8   bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
-                                <h3 class="text-2xl font-semibold mb-2">Our Inception</h3>
-                                <p class="text-gray-600">Born from a passion for knowledge sharing, we embarked on this
-                                    journey
-                                    to create a hub of inspiration and learning.</p>
-                            </div>
-                        </div>
-
-                        <!-- Timeline Item 2 -->
-                        <div class="relative mb-16">
-                            <div
-                                class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full border-4 border-white bg-purple-600 flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                                </svg>
-                            </div>
-                            <div
-                                class="mr-8 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow text-right">
-                                <h3 class="text-2xl font-semibold mb-2">Growing Community</h3>
-                                <p class="text-gray-600">As our readership grew, so did our commitment to delivering
-                                    high-quality, diverse content that resonates with our audience.</p>
-                            </div>
-                        </div>
-
-                        <!-- Timeline Item 3 -->
-                        <div class="relative">
-                            <div
-                                class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full border-4 border-white bg-pink-600 flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                                </svg>
-                            </div>
-                            <div class="ml-8 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow ">
-                                <h3 class="text-2xl font-semibold mb-2">Our Mission Today</h3>
-                                <p class="text-gray-600">We continue to evolve, innovate, and inspire, committed to
-                                    being your
-                                    trusted source for knowledge, growth, and discovery.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Team Section -->
-                    <div class="mt-20">
-                        <h3 class="text-3xl font-bold mb-8 text-center text-white">Meet Our Team</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            <!-- Team Member 1 -->
-                            <div
-                                class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-                                <img src="./app/images/women1.jpg" alt="Team Member 1" class="w-full h-48 object-cover">
-                                <div class="p-4">
-                                    <h4 class="font-bold text-xl mb-2">Jane Doe</h4>
-                                    <p class="text-gray-600">Founder & Editor-in-Chief</p>
+                            <!-- Timeline Item 1 -->
+                            <div class="relative mt-5  mb-16">
+                                <div
+                                    class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full border-4 border-white bg-indigo-600 flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
+                                </div>
+                                <div class="ml-8   bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                                    <h3 class="text-2xl font-semibold mb-2">Our Inception</h3>
+                                    <p class="text-gray-600">Born from a passion for knowledge sharing, we embarked on this
+                                        journey
+                                        to create a hub of inspiration and learning.</p>
                                 </div>
                             </div>
-                            <!-- Team Member 2 -->
-                            <div
-                                class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-                                <img src="./app/images/women2.jpg" alt="Team Member 2" class="w-full h-48 object-cover">
-                                <div class="p-4">
-                                    <h4 class="font-bold text-xl mb-2">John Smith</h4>
-                                    <p class="text-gray-600">Lead Writer</p>
+
+                            <!-- Timeline Item 2 -->
+                            <div class="relative mb-16">
+                                <div
+                                    class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full border-4 border-white bg-purple-600 flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                </div>
+                                <div
+                                    class="mr-8 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow text-right">
+                                    <h3 class="text-2xl font-semibold mb-2">Growing Community</h3>
+                                    <p class="text-gray-600">As our readership grew, so did our commitment to delivering
+                                        high-quality, diverse content that resonates with our audience.</p>
                                 </div>
                             </div>
-                            <!-- Team Member 3 -->
-                            <div
-                                class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-                                <img src="./app/images/man1.jpg" alt="Team Member 3" class="w-full h-48 object-cover">
-                                <div class="p-4">
-                                    <h4 class="font-bold text-xl mb-2">Emily Brown</h4>
-                                    <p class="text-gray-600">Creative Director</p>
+
+                            <!-- Timeline Item 3 -->
+                            <div class="relative">
+                                <div
+                                    class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full border-4 border-white bg-pink-600 flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                    </svg>
+                                </div>
+                                <div class="ml-8 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow ">
+                                    <h3 class="text-2xl font-semibold mb-2">Our Mission Today</h3>
+                                    <p class="text-gray-600">We continue to evolve, innovate, and inspire, committed to
+                                        being your
+                                        trusted source for knowledge, growth, and discovery.</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- CTA -->
-                    <div class="mt-16 text-center">
-                        <a href="#"
-                            class="inline-block bg-white text-indigo-900 px-8 py-3 rounded-full font-semibold hover:bg-indigo-100 transition duration-300 transform hover:scale-105">
-                            Join Our Journey
-                        </a>
+                        <!-- Team Section -->
+                        <div class="mt-20">
+                            <h3 class="text-3xl font-bold mb-8 text-center text-white">Meet Our Team</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                <!-- Team Member 1 -->
+                                <div
+                                    class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+                                    <img src="./app/images/women1.jpg" alt="Team Member 1" class="w-full h-48 object-cover">
+                                    <div class="p-4">
+                                        <h4 class="font-bold text-xl mb-2">Jane Doe</h4>
+                                        <p class="text-gray-600">Founder & Editor-in-Chief</p>
+                                    </div>
+                                </div>
+                                <!-- Team Member 2 -->
+                                <div
+                                    class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+                                    <img src="./app/images/women2.jpg" alt="Team Member 2" class="w-full h-48 object-cover">
+                                    <div class="p-4">
+                                        <h4 class="font-bold text-xl mb-2">John Smith</h4>
+                                        <p class="text-gray-600">Lead Writer</p>
+                                    </div>
+                                </div>
+                                <!-- Team Member 3 -->
+                                <div
+                                    class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+                                    <img src="./app/images/man1.jpg" alt="Team Member 3" class="w-full h-48 object-cover">
+                                    <div class="p-4">
+                                        <h4 class="font-bold text-xl mb-2">Emily Brown</h4>
+                                        <p class="text-gray-600">Creative Director</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CTA -->
+                        <div class="mt-16 text-center">
+                            <a href="#"
+                                class="inline-block bg-white text-indigo-900 px-8 py-3 rounded-full font-semibold hover:bg-indigo-100 transition duration-300 transform hover:scale-105">
+                                Join Our Journey
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        <?php endif; ?>

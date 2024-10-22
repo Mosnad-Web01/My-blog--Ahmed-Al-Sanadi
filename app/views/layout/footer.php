@@ -28,7 +28,7 @@
 
 <script>
 
-    // Preview image on selection
+    // preview image on selection
     const imageInput = document.getElementById('image');
     const imageLabel = imageInput.closest('label');
 

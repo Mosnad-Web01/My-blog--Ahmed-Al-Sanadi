@@ -8,7 +8,7 @@ class Blog
         $this->db = $db;
     }
 
-    // fetch all blogs
+
     public function getAllBlogs()
     {
         $query = "SELECT * FROM blogs ORDER BY created_at DESC";
@@ -17,14 +17,14 @@ class Blog
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // create a new blog post
+
     public function createBlog($title, $content, $user_id, $image_url, $is_published, $category, $tags)
     {
         $query = "INSERT INTO blogs (title, content, user_id, image_url, is_published, category, tags, created_at, updated_at) 
                   VALUES (:title, :content, :user_id, :image_url, :is_published, :category, :tags, NOW(), NOW())";
         $stmt = $this->db->prepare($query);
 
-        // Bind parameters
+
         $stmt->bindParam(':title', $title);
         $stmt->bindParam(':content', $content);
         $stmt->bindParam(':user_id', $user_id);
@@ -33,7 +33,7 @@ class Blog
         $stmt->bindParam(':category', $category);
         $stmt->bindParam(':tags', $tags);
 
-        $stmt->execute(); // Return true if successful
+        $stmt->execute();
     }
 
     public function getBlogById($id)
@@ -59,12 +59,12 @@ class Blog
         $stmt->bindParam(':tags', $tags);
         $stmt->execute();
     }
-public function deleteBlog($id)
-{
-    $query = "DELETE FROM blogs WHERE id = :id";
-    $stmt = $this->db->prepare($query);
-    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-    $stmt->execute();
-    return $stmt->rowCount();
-}
+    public function deleteBlog($id)
+    {
+        $query = "DELETE FROM blogs WHERE id = :id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->rowCount();
+    }
 }

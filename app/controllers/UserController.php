@@ -20,19 +20,19 @@ class UserController
             $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
             $password = $_POST['password'];
 
-            // Validate email
+            
             if (empty($email)) {
                 $errors['email'] = "Email field must not be empty.";
             } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $errors['email'] = "Invalid email format.";
             }
 
-            // Validate password
+      
             if (empty($password)) {
                 $errors['password'] = "Password field must not be empty.";
             }
 
-            // Proceed only if there are no validation errors
+           
             if (empty($errors)) {
                 try {
                     // Attempt to sign in
@@ -48,7 +48,6 @@ class UserController
                 }
             }
 
-            // Store errors in session for display on the form
             $_SESSION['errors'] = $errors;
         }
     }
@@ -87,7 +86,7 @@ class UserController
 
             if (empty($errors)) {
                 try {
-                    // Attempt to sign up the user
+                   
                     $isCreated = $this->userModel->signUp($name, $username, $email, $password);
 
 
@@ -112,10 +111,8 @@ class UserController
 
     public function logout(): void
     {
-        // Unset all session variables
+        
         $_SESSION = [];
-
-        // destroy the session
         session_destroy();
         header('Location: /my-blog/home');
         exit();

@@ -37,7 +37,7 @@ class BlogController
 
     public function create()
     {
-        // Authentication check
+        
         if (!isset($_SESSION['user_id'])) {
             $_SESSION['error'] = "You need to be logged in to create a blog post.";
             header('Location: /my-blog/login');
@@ -49,7 +49,7 @@ class BlogController
 
     public function store()
     {
-        // Authentication check
+        
         if (!isset($_SESSION['user_id'])) {
             $_SESSION['error'] = "You need to be logged in to create a blog post.";
             header('Location: /my-blog/login');
@@ -65,12 +65,12 @@ class BlogController
             $tags = trim($_POST['tags'] ?? '');
             $image_url = null;
 
-            // Validation
+          
             $errors = [];
             if (empty($title)) $errors[] = "Title cannot be empty.";
             if (empty($content)) $errors[] = "Content cannot be empty.";
 
-            // Image handling
+           
             if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
                 $image = $_FILES['image'];
                 $allowed_types = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'];
@@ -90,7 +90,7 @@ class BlogController
                 }
             }
 
-            // Redirect back on validation errors
+            
             if (!empty($errors)) {
                 $_SESSION['errors'] = $errors;
                 $_SESSION['old_input'] = $_POST;
@@ -98,7 +98,7 @@ class BlogController
                 exit;
             }
 
-            // Create blog post
+            
             $this->blogModel->createBlog($title, $content, $user_id, $image_url, $is_published, $category, $tags);
             $_SESSION['message'] = "Blog post created successfully!";
             header('Location: /my-blog/blogs');
@@ -137,7 +137,7 @@ class BlogController
 
     public function update()
     {
-        // Authentication check
+        
         if (!isset($_SESSION['user_id'])) {
             $_SESSION['error'] = "You need to be logged in to update a blog post.";
             header('Location: /my-blog/login');
@@ -192,7 +192,7 @@ class BlogController
 
     public function delete()
     {
-        // Authentication check
+        
         if (!isset($_SESSION['user_id'])) {
             $_SESSION['error'] = "You need to be logged in to delete a blog post.";
             header('Location: /my-blog/login');

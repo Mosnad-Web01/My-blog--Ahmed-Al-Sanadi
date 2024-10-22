@@ -78,7 +78,7 @@ class Router
     }
 
  
-    // Check if the route refers to a controller action.
+    // check if the route refers to a controller action.
     protected function isControllerRoute($route)
     {
         // check if the route is a string and contains '@'
